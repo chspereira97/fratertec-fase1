@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fratertec - Projeto Social Comunitário</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    
+    <style>
+        :root {
+            --bg-dark: #0A192F;
+            --bg-card: #1E293B;
+            --accent-blue: #00D2FF;
+            --text-light: #F8FAFC;
+            --text-muted: #94A3B8;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .navbar {
+            background-color: rgba(10, 25, 47, 0.95);
+            border-bottom: 1px solid rgba(0, 210, 255, 0.2);
+        }
+
+        .brand-highlight { color: var(--accent-blue); }
+
+        .card-custom {
+            background-color: var(--bg-card);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+        }
+
+        .btn-custom {
+            background-color: var(--accent-blue);
+            color: #0A192F;
+            font-weight: 600;
+            border: none;
+            transition: all 0.3s ease;
+        }
+
+        .btn-custom:hover {
+            background-color: #00b8e6;
+            color: #000;
+            box-shadow: 0 0 15px rgba(0, 210, 255, 0.5);
+        }
+
+        footer {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-muted);
+            margin-top: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">
+                <i class="bi bi-cpu text-info me-2"></i>FRATER<span class="brand-highlight">TEC</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Início</a></li>
+                    <li class="nav-item"><a class="nav-link" href="servicos.html">Serviços</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="projeto-social.html">Projeto Social</a></li>
+                    <li class="nav-item"><a class="nav-link" href="sobre.html">Sobre</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contato.html">Orçamento</a></li>
+                    <li class="nav-item"><a class="btn btn-outline-info ms-lg-3 btn-sm" href="admin.html"><i class="bi bi-lock me-1"></i>Painel Admin</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HEADER PROJETO SOCIAL -->
+    <section class="pt-5 mt-5 text-center">
+        <div class="container py-4">
+            <span class="badge bg-info text-dark px-3 py-2 fs-6 mb-3">Tecnologia com Impacto Social</span>
+            <h1 class="display-5 fw-bold mb-3">Sistema para <span class="brand-highlight">Associações Comunitárias</span></h1>
+            <p class="lead text-secondary mx-auto" style="max-width: 800px;">
+                Uma solução de gestão simplificada e totalmente gratuita desenvolvida pela Fratertec para apoiar ONGs, projetos sociais e associações de bairro.
+            </p>
+        </div>
+    </section>
+
+    <!-- CONTEXTO E FUNCIONALIDADES -->
+    <section class="pb-5">
+        <div class="container">
+            <div class="row g-4 align-items-center mb-5">
+                <div class="col-lg-6">
+                    <div class="card card-custom p-4 p-md-5 h-100">
+                        <h3 class="fw-bold mb-3 text-info"><i class="bi bi-heart-pulse me-2"></i>Contexto de Criação</h3>
+                        <p class="text-secondary">
+                            Muitas entidades comunitárias enfrentam dificuldades operacionais para organizar cadastros, voluntários e doações devido aos custos elevados de softwares comerciais.
+                        </p>
+                        <p class="text-secondary mb-0">
+                            Fiel ao significado do nome <em>Frater</em> (irmão/fraternidade), criámos uma ferramenta leve e intuitiva para permitir que os gestores comunitários foquem o seu tempo no impacto direto na comunidade.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="card card-custom p-4 p-md-5 h-100">
+                        <h4 class="fw-bold mb-4"><i class="bi bi-check-circle-fill text-info me-2"></i>Recursos Incluídos:</h4>
+                        <ul class="list-unstyled text-secondary mb-0">
+                            <li class="mb-3"><i class="bi bi-person-plus text-info me-2"></i><strong>Gestão de Associados:</strong> Registo simples de membros e beneficiários.</li>
+                            <li class="mb-3"><i class="bi bi-box-seam text-info me-2"></i><strong>Controlo de Doações:</strong> Organização de suprimentos e cestas.</li>
+                            <li class="mb-3"><i class="bi bi-file-earmark-bar-graph text-info me-2"></i><strong>Relatórios Rápidos:</strong> Exportação para prestação de contas.</li>
+                            <li><i class="bi bi-shield-check text-info me-2"></i><strong>Licença Livre:</strong> Gratuito e sem mensalidades.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ÁREA DE DOWNLOAD -->
+            <div class="card card-custom p-5 text-center border-info">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <i class="bi bi-cloud-arrow-down display-3 brand-highlight mb-3"></i>
+                        <h2 class="fw-bold mb-3">Transferir o Sistema Gratuitamente</h2>
+                        <p class="text-secondary mb-4">
+                            Faça o download do pacote de instalação e consulte a documentação de utilização.
+                        </p>
+                        <button class="btn btn-custom btn-lg px-5 py-3" onclick="alert('O download do pacote de instalação estático começará em instantes!')">
+                            <i class="bi bi-download me-2"></i>Descarregar Sistema (.ZIP)
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="py-4 text-center">
+        <div class="container">
+            <p class="mb-0">&copy; 2026 Fratertec Soluções em Tecnologia. Todos os direitos reservados.</p>
+            <small class="text-muted">Projeto Interdisciplinar - Fatec Itaquaquecetuba</small>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

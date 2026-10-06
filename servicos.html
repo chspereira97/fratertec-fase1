@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fratertec - Serviços</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <style>
+        :root { --bg-dark: #0A192F; --bg-card: #1E293B; --accent-blue: #00D2FF; --text-light: #F8FAFC; }
+        body { background-color: var(--bg-dark); color: var(--text-light); }
+        .navbar { background-color: rgba(10, 25, 47, 0.95); border-bottom: 1px solid rgba(0, 210, 255, 0.2); }
+        .brand-highlight { color: var(--accent-blue); }
+        .card-service { background-color: var(--bg-card); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 12px; }
+        .card-service:hover { border-color: var(--accent-blue); }
+        .icon-box { font-size: 2.5rem; color: var(--accent-blue); }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html"><i class="bi bi-cpu text-info me-2"></i>FRATER<span class="brand-highlight">TEC</span></a>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Início</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="servicos.html">Serviços</a></li>
+                    <li class="nav-item"><a class="nav-link" href="projeto-social.html">Projeto Social</a></li>
+                    <li class="nav-item"><a class="nav-link" href="sobre.html">Sobre</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contato.html">Orçamento</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="pt-5 mt-5">
+        <div class="container py-5">
+            <div class="text-center mb-5">
+                <h1 class="fw-bold">Nossas <span class="brand-highlight">Frentes de Atuação</span></h1>
+                <p class="text-secondary">Soluções integradas sob medida para o seu crescimento</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3">
+                    <div class="card card-service h-100 p-4 text-center text-white">
+                        <div class="icon-box mb-3"><i class="bi bi-globe"></i></div>
+                        <h4 class="h5 fw-bold">Presença Digital</h4>
+                        <p class="small text-secondary">Landing Pages de alta conversão, otimização do Google Meu Negócio e avaliação rápida via Tag NFC.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="card card-service h-100 p-4 text-center text-white">
+                        <div class="icon-box mb-3"><i class="bi bi-router"></i></div>
+                        <h4 class="h5 fw-bold">Redes & Infra</h4>
+                        <p class="small text-secondary">Montagem, cabeamento estruturado e configuração profissional de roteadores e redes corporativas.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="card card-service h-100 p-4 text-center text-white">
+                        <div class="icon-box mb-3"><i class="bi bi-robot"></i></div>
+                        <h4 class="h5 fw-bold">FinBot SaaS</h4>
+                        <p class="small text-secondary">Automação inteligente de atendimento e mensagens de cobrança para gestão financeira ágil.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="card card-service h-100 p-4 text-center text-white">
+                        <div class="icon-box mb-3"><i class="bi bi-shop"></i></div>
+                        <h4 class="h5 fw-bold">Sistemas PDV</h4>
+                        <p class="small text-secondary">Foco em Hortifruti e Adegas. Gestão de estoque e vendas rápida com inteligência de quem conhece a rotina.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

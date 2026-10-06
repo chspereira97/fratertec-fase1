@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fratertec - Orçamento</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <style>
+        :root { --bg-dark: #0A192F; --bg-card: #1E293B; --accent-blue: #00D2FF; --text-light: #F8FAFC; }
+        body { background-color: var(--bg-dark); color: var(--text-light); }
+        .navbar { background-color: rgba(10, 25, 47, 0.95); border-bottom: 1px solid rgba(0, 210, 255, 0.2); }
+        .brand-highlight { color: var(--accent-blue); }
+        .card-custom { background-color: var(--bg-card); border: 1px solid rgba(255, 255, 255, 0.05); }
+        .btn-custom { background-color: var(--accent-blue); color: #0A192F; font-weight: 600; }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html"><i class="bi bi-cpu text-info me-2"></i>FRATER<span class="brand-highlight">TEC</span></a>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Início</a></li>
+                    <li class="nav-item"><a class="nav-link" href="servicos.html">Serviços</a></li>
+                    <li class="nav-item"><a class="nav-link" href="projeto-social.html">Projeto Social</a></li>
+                    <li class="nav-item"><a class="nav-link" href="sobre.html">Sobre</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="contato.html">Orçamento</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="pt-5 mt-5">
+        <div class="container py-5">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="text-center mb-4">
+                        <h1 class="fw-bold">Solicite um <span class="brand-highlight">Orçamento</span></h1>
+                        <p class="text-secondary">Preencha os dados e entraremos em contato rapidamente.</p>
+                    </div>
+                    <form class="card p-4 card-custom">
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label class="form-label text-light">Nome Completo</label>
+                                <input type="text" class="form-control bg-dark text-light border-secondary" placeholder="Seu nome">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label text-light">E-mail</label>
+                                <input type="email" class="form-control bg-dark text-light border-secondary" placeholder="seuemail@exemplo.com">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label text-light">Telefone / WhatsApp</label>
+                                <input type="text" class="form-control bg-dark text-light border-secondary" placeholder="(11) 99999-9999">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label text-light">Serviço de Interesse</label>
+                                <select class="form-select bg-dark text-light border-secondary">
+                                    <option selected>Selecione...</option>
+                                    <option>Presença Digital</option>
+                                    <option>Redes & Infraestrutura</option>
+                                    <option>FinBot</option>
+                                    <option>Sistema PDV</option>
+                                </select>
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label text-light">Mensagem</label>
+                                <textarea class="form-control bg-dark text-light border-secondary" rows="4" placeholder="Descreva sua necessidade..."></textarea>
+                            </div>
+                            <div class="col-12 text-center mt-4">
+                                <button type="button" class="btn btn-custom btn-lg w-100" onclick="alert('Solicitação enviada!')">Enviar Orçamento</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fratertec - Painel Administrativo</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    
+    <style>
+        :root {
+            --bg-dark: #0A192F;
+            --bg-card: #1E293B;
+            --accent-blue: #00D2FF;
+            --text-light: #F8FAFC;
+            --text-muted: #94A3B8;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+        }
+
+        .navbar {
+            background-color: rgba(10, 25, 47, 0.95);
+            border-bottom: 1px solid rgba(0, 210, 255, 0.2);
+        }
+
+        .brand-highlight { color: var(--accent-blue); }
+
+        .card-custom {
+            background-color: var(--bg-card);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+        }
+
+        .btn-custom {
+            background-color: var(--accent-blue);
+            color: #0A192F;
+            font-weight: 600;
+            border: none;
+        }
+
+        .btn-custom:hover {
+            background-color: #00b8e6;
+            color: #000;
+        }
+
+        .login-container {
+            max-width: 420px;
+            margin: 100px auto 0 auto;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">
+                <i class="bi bi-cpu text-info me-2"></i>FRATER<span class="brand-highlight">TEC</span> <small class="fs-6 text-muted">| Admin</small>
+            </a>
+            <div class="ms-auto d-flex align-items-center gap-2">
+                <a href="index.html" class="btn btn-outline-light btn-sm"><i class="bi bi-arrow-left me-1"></i>Voltar ao Site</a>
+                <button id="btnLogout" class="btn btn-outline-danger btn-sm d-none" onclick="fazerLogout()"><i class="bi bi-box-arrow-right me-1"></i>Sair</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- TELA 1: FORMULÁRIO DE LOGIN (VISÍVEL POR PADRÃO) -->
+    <div id="sectionLogin" class="container">
+        <div class="login-container">
+            <div class="card card-custom p-4 p-md-5 text-center">
+                <i class="bi bi-shield-lock display-4 brand-highlight mb-3"></i>
+                <h3 class="fw-bold mb-1">Acesso Restrito</h3>
+                <p class="text-secondary small mb-4">Painel de Gestão Interna da Fratertec</p>
+
+                <form onsubmit="fazerLogin(event)">
+                    <div class="mb-3 text-start">
+                        <label class="form-label text-light small">E-mail Corporativo</label>
+                        <input type="email" id="email" class="form-control bg-dark text-light border-secondary" value="admin@fratertec.com.br" required>
+                    </div>
+                    <div class="mb-4 text-start">
+                        <label class="form-label text-light small">Senha</label>
+                        <input type="password" id="senha" class="form-control bg-dark text-light border-secondary" value="123456" required>
+                    </div>
+                    <button type="submit" class="btn btn-custom w-100 py-2 mb-3">Entrar no Painel</button>
+                    <small class="text-muted">Protótipo da Fase 1 - Clique em Entrar</small>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- TELA 2: DASHBOARD CRUD (OCULTO ATÉ O LOGIN) -->
+    <div id="sectionDashboard" class="container pt-5 mt-5 d-none">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <div>
+                <h2 class="fw-bold mb-0">Painel de <span class="brand-highlight">Controle</span></h2>
+                <p class="text-secondary mb-0">Gerenciamento de Leads e Solicitações de Orçamento</p>
+            </div>
+            <button class="btn btn-custom btn-sm" onclick="alert('Inclusão de leads ativada no banco C# (Fase 2)!')">
+                <i class="bi bi-plus-lg me-1"></i>Novo Lead
+            </button>
+        </div>
+
+        <!-- METRICAS RÁPIDAS -->
+        <div class="row g-3 mb-4">
+            <div class="col-md-4">
+                <div class="card card-custom p-3 text-center">
+                    <span class="text-secondary small">Total de Solicitações</span>
+                    <h2 class="fw-bold text-info mb-0">12</h2>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card card-custom p-3 text-center">
+                    <span class="text-secondary small">Orçamentos Pendentes</span>
+                    <h2 class="fw-bold text-warning mb-0">5</h2>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card card-custom p-3 text-center">
+                    <span class="text-secondary small">Clientes Fechados</span>
+                    <h2 class="fw-bold text-success mb-0">7</h2>
+                </div>
+            </div>
+        </div>
+
+        <!-- TABELA CRUD DE LEADS -->
+        <div class="card card-custom p-4">
+            <h5 class="fw-bold mb-3"><i class="bi bi-table me-2 text-info"></i>Solicitações Recebidas (CRUD)</h5>
+            <div class="table-responsive">
+                <table class="table table-dark table-hover align-middle mb-0">
+                    <thead>
+                        <tr>
+                            <th>Cliente / Empresa</th>
+                            <th>Contato</th>
+                            <th>Serviço Solicitado</th>
+                            <th>Status</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Hortifruti CEAGESP</strong></td>
+                            <td>(11) 98888-7777<br><small class="text-muted">contato@horti.com</small></td>
+                            <td><span class="badge bg-primary">Sistema PDV</span></td>
+                            <td><span class="badge bg-warning text-dark">Em Análise</span></td>
+                            <td>
+                                <button class="btn btn-sm btn-outline-info me-1" onclick="alert('Editar Lead (Simulação C# na Fase 2)')"><i class="bi bi-pencil"></i></button>
+                                <button class="btn btn-sm btn-outline-danger" onclick="alert('Excluir Lead (Simulação C# na Fase 2)')"><i class="bi bi-trash"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Adega Express</strong></td>
+                            <td>(11) 97777-6666<br><small class="text-muted">vendas@adega.com</small></td>
+                            <td><span class="badge bg-info text-dark">Presença Digital</span></td>
+                            <td><span class="badge bg-success">Aprovado</span></td>
+                            <td>
+                                <button class="btn btn-sm btn-outline-info me-1" onclick="alert('Editar Lead')"><i class="bi bi-pencil"></i></button>
+                                <button class="btn btn-sm btn-outline-danger" onclick="alert('Excluir Lead')"><i class="bi bi-trash"></i></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- SCRIPT SIMPLES PARA ALTERNAR LOGIN E DASHBOARD -->
+    <script>
+        function fazerLogin(event) {
+            event.preventDefault();
+            document.getElementById('sectionLogin').classList.add('d-none');
+            document.getElementById('sectionDashboard').classList.remove('d-none');
+            document.getElementById('btnLogout').classList.remove('d-none');
+        }
+
+        function fazerLogout() {
+            document.getElementById('sectionDashboard').classList.add('d-none');
+            document.getElementById('sectionLogin').classList.remove('d-none');
+            document.getElementById('btnLogout').classList.add('d-none');
+        }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
