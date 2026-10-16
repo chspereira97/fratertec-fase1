@@ -4,23 +4,75 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fratertec - Início</title>
+    
+    <!-- Favicon (Ícone na Aba do Navegador) -->
+    <link rel="icon" type="image/png" href="favicon.png">
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <style>
-        :root { --bg-dark: #0A192F; --bg-card: #1E293B; --accent-blue: #00D2FF; --text-light: #F8FAFC; }
-        body { background-color: var(--bg-dark); color: var(--text-light); }
-        .navbar { background-color: rgba(10, 25, 47, 0.95); border-bottom: 1px solid rgba(0, 210, 255, 0.2); }
-        .brand-highlight { color: var(--accent-blue); }
-        .hero-section { padding: 120px 0 80px 0; }
-        .btn-custom { background-color: var(--accent-blue); color: #0A192F; font-weight: 600; }
-        .btn-custom:hover { background-color: #00b8e6; }
+        :root { 
+            --bg-dark: #0A192F; 
+            --bg-card: #1E293B; 
+            --accent-blue: #00D2FF; 
+            --text-light: #F8FAFC; 
+            --text-subtle: #CBD5E1; 
+        }
+        body { 
+            background-color: var(--bg-dark); 
+            color: var(--text-light); 
+        }
+        .navbar { 
+            background-color: rgba(10, 25, 47, 0.95); 
+            border-bottom: 1px solid rgba(0, 210, 255, 0.2); 
+        }
+        .brand-highlight { 
+            color: var(--accent-blue); 
+        }
+        .hero-section { 
+            padding: 120px 0 80px 0; 
+        }
+        .hero-description {
+            color: var(--text-subtle);
+            font-size: 1.2rem;
+            line-height: 1.6;
+        }
+        .btn-custom { 
+            background-color: var(--accent-blue); 
+            color: #0A192F; 
+            font-weight: 600; 
+        }
+        .btn-custom:hover { 
+            background-color: #00b8e6; 
+            color: #0A192F;
+        }
+
+        /* Vetor da Logo 100% Livre (Sem Moldura / Sem Caixa) */
+        .logo-free {
+            width: 100%;
+            max-width: 380px;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+            filter: drop-shadow(0 0 25px rgba(0, 210, 255, 0.4)); /* Brilho neon azul em volta do "F" */
+            transition: transform 0.4s ease, filter 0.4s ease;
+        }
+
+        .logo-free:hover {
+            transform: translateY(-8px) scale(1.02);
+            filter: drop-shadow(0 0 35px rgba(0, 210, 255, 0.7)); /* Intensifica o brilho neon no hover */
+        }
     </style>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
-            <a class="navbar-brand fw-bold" href="index.html"><i class="bi bi-cpu text-info me-2"></i>FRATER<span class="brand-highlight">TEC</span></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"><span class="navbar-toggler-icon"></span></button>
+            <a class="navbar-brand fw-bold" href="index.html">
+                <i class="bi bi-cpu text-info me-2"></i>FRATER<span class="brand-highlight">TEC</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link active" href="index.html">Início</a></li>
@@ -28,7 +80,6 @@
                     <li class="nav-item"><a class="nav-link" href="projeto-social.html">Projeto Social</a></li>
                     <li class="nav-item"><a class="nav-link" href="sobre.html">Sobre</a></li>
                     <li class="nav-item"><a class="nav-link" href="contato.html">Orçamento</a></li>
-                    <li class="nav-item"><a class="btn btn-outline-info ms-lg-3 btn-sm" href="admin.html"><i class="bi bi-lock me-1"></i>Painel Admin</a></li>
                 </ul>
             </div>
         </div>
@@ -39,14 +90,17 @@
             <div class="row align-items-center">
                 <div class="col-lg-7">
                     <h1 class="display-4 fw-bold mb-3">Conectando Soluções, <span class="brand-highlight">Impulsionando Negócios</span>.</h1>
-                    <p class="lead text-secondary mb-4">Unimos Presença Digital, Infraestrutura de Redes, Automação de Processos e Inteligência Financeira para transformar a operação da sua empresa.</p>
-                    <div class="d-flex gap-3">
+                    <p class="hero-description mb-4">
+                        Nascida da essência do atendimento <strong>de irmão para irmão</strong>, a Fratertec conecta serviços de TI de alto nível, segurança e gestão financeira para impulsionar o crescimento do seu negócio.
+                    </p>
+                    <div class="d-flex gap-3 justify-content-center justify-content-lg-start">
                         <a href="contato.html" class="btn btn-custom btn-lg">Solicitar Orçamento</a>
                         <a href="servicos.html" class="btn btn-outline-light btn-lg">Nossos Serviços</a>
                     </div>
                 </div>
                 <div class="col-lg-5 text-center mt-5 mt-lg-0">
-                    <i class="bi bi-diagram-3-fill display-1 brand-highlight"></i>
+                    <!-- Vetor Livre sem Moldura -->
+                    <img src="logo-fratertec.png" alt="Logo Fratertec" class="logo-free">
                 </div>
             </div>
         </div>
