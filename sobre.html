@@ -4,19 +4,70 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fratertec - Sobre Nós</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="favicon.png">
+
+    <!-- Bootstrap 5 CSS & Icons -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    
     <style>
-        :root { --bg-dark: #0A192F; --bg-card: #1E293B; --accent-blue: #00D2FF; --text-light: #F8FAFC; }
-        body { background-color: var(--bg-dark); color: var(--text-light); }
-        .navbar { background-color: rgba(10, 25, 47, 0.95); border-bottom: 1px solid rgba(0, 210, 255, 0.2); }
-        .brand-highlight { color: var(--accent-blue); }
+        :root { 
+            --bg-dark: #0A192F; 
+            --bg-card: #1E293B; 
+            --accent-blue: #00D2FF; 
+            --text-light: #F8FAFC; 
+            --text-subtle: #CBD5E1; 
+        }
+        body { 
+            background-color: var(--bg-dark); 
+            color: var(--text-light); 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .navbar { 
+            background-color: rgba(10, 25, 47, 0.95); 
+            border-bottom: 1px solid rgba(0, 210, 255, 0.2); 
+            backdrop-filter: blur(10px);
+        }
+        .brand-highlight { 
+            color: var(--accent-blue); 
+        }
+        .text-subtle {
+            color: var(--text-subtle) !important;
+            line-height: 1.6;
+        }
+        .card-custom {
+            background-color: var(--bg-card);
+            border: 1px solid rgba(0, 210, 255, 0.15);
+            border-radius: 16px;
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card-custom:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-blue);
+            box-shadow: 0 10px 25px rgba(0, 210, 255, 0.2);
+        }
+        .icon-box {
+            font-size: 2.2rem;
+            color: var(--accent-blue);
+        }
+        .contact-link:hover {
+            color: var(--accent-blue) !important;
+        }
     </style>
 </head>
 <body>
+
+    <!-- Menu de Navegação -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
-            <a class="navbar-brand fw-bold" href="index.html"><i class="bi bi-cpu text-info me-2"></i>FRATER<span class="brand-highlight">TEC</span></a>
+            <a class="navbar-brand fw-bold" href="index.html">
+                <i class="bi bi-cpu text-info me-2"></i>FRATER<span class="brand-highlight">TEC</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link" href="index.html">Início</a></li>
@@ -29,27 +80,100 @@
         </div>
     </nav>
 
+    <!-- Seção Principal -->
     <section class="pt-5 mt-5">
         <div class="container py-5">
-            <div class="row align-items-center">
+            <div class="row align-items-center mb-5">
                 <div class="col-lg-6 mb-4 mb-lg-0">
-                    <h1 class="fw-bold mb-3">Sobre a <span class="brand-highlight">Fratertec</span></h1>
-                    <p class="text-secondary">Nascida do significado da palavra <em>"Frater"</em> (Irmão), a Fratertec representa a união entre a <strong>inteligência de gestão, a infraestrutura tecnológica</strong> e o compromisso real de impulsionar o crescimento de cada cliente, com um <strong>atendimento de irmão para irmão</strong>.</p>
-                    <p class="text-secondary">Nosso propósito é oferecer às micro e pequenas empresas o mesmo nível de infraestrutura e inteligência tecnológica utilizado pelas grandes corporações, de forma prática e humanizada.</p>
+                    <h1 class="fw-bold display-5 mb-3">Sobre a <span class="brand-highlight">Fratertec</span></h1>
+                    <p class="text-subtle fs-5">
+                        Nascida do significado da palavra <em>"Frater"</em> (Irmão), a Fratertec representa a união entre a <strong>inteligência de gestão, a infraestrutura tecnológica</strong> e o compromisso real de impulsionar o crescimento de cada cliente, com um <strong>atendimento de irmão para irmão</strong>.
+                    </p>
+                    <p class="text-subtle">
+                        Nosso propósito é oferecer às micro e pequenas empresas o mesmo nível de infraestrutura e inteligência tecnológica utilizado pelas grandes corporações, de forma prática e humanizada.
+                    </p>
                 </div>
+                
+                <!-- Caixa de Canais de Contacto & Redes Sociais -->
                 <div class="col-lg-6">
-                    <div class="bg-dark p-4 rounded-3 border border-secondary">
-                        <h5 class="fw-bold text-info mb-3"><i class="bi bi-people-fill me-2"></i>Nossa Equipe</h5>
-                        <ul class="list-unstyled mb-0 text-secondary">
-                            <li class="mb-2"><strong class="text-light">Operações & TI:</strong> Gestão de TI e Sistemas</li>
-                            <li class="mb-2"><strong class="text-light">Gestão Financeira:</strong> Responsável Contábil & Fiscal</li>
-                            <li class="mb-2"><strong class="text-light">Infraestrutura:</strong> Engenheiro de Redes & Hardware</li>
-                            <li><strong class="text-light">Comercial:</strong> Vendas e Relacionamento com Clientes</li>
+                    <div class="card-custom p-4 rounded-3">
+                        <h5 class="fw-bold text-info mb-3"><i class="bi bi-envelope-paper-fill me-2"></i>Contactos & Redes Sociais</h5>
+                        <ul class="list-unstyled mb-0 text-subtle">
+                            <li class="mb-3 d-flex align-items-center">
+                                <i class="bi bi-envelope-fill text-info fs-5 me-3"></i>
+                                <div>
+                                    <strong class="text-light d-block">E-mail Comercial:</strong>
+                                    <a href="mailto:contato@fratertec.com.br" class="text-subtle contact-link text-decoration-none">contato@fratertec.com.br</a>
+                                </div>
+                            </li>
+                            <li class="mb-3 d-flex align-items-center">
+                                <i class="bi bi-whatsapp text-info fs-5 me-3"></i>
+                                <div>
+                                    <strong class="text-light d-block">WhatsApp:</strong>
+                                    <a href="https://wa.me/5511999999999" target="_blank" class="text-subtle contact-link text-decoration-none">+55 (11) 99999-9999</a>
+                                </div>
+                            </li>
+                            <li class="mb-3 d-flex align-items-center">
+                                <i class="bi bi-instagram text-info fs-5 me-3"></i>
+                                <div>
+                                    <strong class="text-light d-block">Instagram:</strong>
+                                    <a href="https://instagram.com/fratertec" target="_blank" class="text-subtle contact-link text-decoration-none">@fratertec</a>
+                                </div>
+                            </li>
+                            <li class="d-flex align-items-center">
+                                <i class="bi bi-linkedin text-info fs-5 me-3"></i>
+                                <div>
+                                    <strong class="text-light d-block">LinkedIn:</strong>
+                                    <a href="https://linkedin.com/company/fratertec" target="_blank" class="text-subtle contact-link text-decoration-none">Fratertec Soluções em Tecnologia</a>
+                                </div>
+                            </li>
                         </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Missão, Visão e Valores -->
+            <div class="row g-4 pt-3">
+                <!-- Missão -->
+                <div class="col-md-4">
+                    <div class="card-custom h-100 p-4 text-center">
+                        <div class="icon-box mb-3"><i class="bi bi-bullseye"></i></div>
+                        <h3 class="h5 fw-bold mb-3">Missão</h3>
+                        <p class="text-subtle mb-0">
+                            Democratizar o acesso à tecnologia e à gestão eficiente para micro e pequenas empresas, oferecendo soluções acessíveis, seguras e personalizadas que impulsionam o crescimento real dos nossos clientes.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Visão -->
+                <div class="col-md-4">
+                    <div class="card-custom h-100 p-4 text-center">
+                        <div class="icon-box mb-3"><i class="bi bi-eye"></i></div>
+                        <h3 class="h5 fw-bold mb-3">Visão</h3>
+                        <p class="text-subtle mb-0">
+                            Ser referência regional em soluções tecnológicas humanizadas e acessíveis, reconhecida pela excelência no atendimento, inovação prática e impacto positivo nas comunidades onde atuamos.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Valores -->
+                <div class="col-md-4">
+                    <div class="card-custom h-100 p-4 text-center">
+                        <div class="icon-box mb-3"><i class="bi bi-hand-thumbs-up"></i></div>
+                        <h3 class="h5 fw-bold mb-3">Valores</h3>
+                        <p class="text-subtle mb-0">
+                            <strong>Fraternidade:</strong> Atendimento transparente e próximo.<br>
+                            <strong>Simplicidade:</strong> Tecnologia fácil de usar.<br>
+                            <strong>Comprometimento:</strong> Foco no sucesso do cliente.<br>
+                            <strong>Impacto Social:</strong> Apoio ativo a iniciativas comunitárias.
+                        </p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
