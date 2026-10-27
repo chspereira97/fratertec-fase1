@@ -5,17 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fratertec - Serviços</title>
     
-    <!-- Favicon -->
     <link rel="icon" type="image/png" href="favicon.png">
-
-    <!-- Bootstrap 5 & Bootstrap Icons -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     
     <style>
         :root { 
             --bg-dark: #0A192F; 
-            --bg-card: #1E293B; 
+            --bg-card: #112240; 
             --accent-blue: #00D2FF; 
             --text-light: #F8FAFC; 
             --text-subtle: #CBD5E1; 
@@ -24,57 +21,39 @@
             background-color: var(--bg-dark); 
             color: var(--text-light); 
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
         }
         .navbar { 
             background-color: rgba(10, 25, 47, 0.95); 
             border-bottom: 1px solid rgba(0, 210, 255, 0.2); 
             backdrop-filter: blur(10px);
         }
-        .brand-highlight { 
-            color: var(--accent-blue); 
-        }
+        .brand-highlight { color: var(--accent-blue); }
+        .text-subtle { color: var(--text-subtle) !important; }
         
-        /* Card dos Serviços */
-        .card-service { 
-            background-color: var(--bg-card); 
-            border: 1px solid rgba(0, 210, 255, 0.15); 
-            border-radius: 16px; 
-            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
+        .custom-card {
+            background-color: var(--bg-card) !important;
+            border: 1px solid rgba(0, 210, 255, 0.2) !important;
+            border-radius: 12px;
+            transition: transform 0.2s ease, border-color 0.2s ease;
         }
-        .card-service:hover { 
-            transform: translateY(-8px);
-            border-color: var(--accent-blue); 
-            box-shadow: 0 10px 25px rgba(0, 210, 255, 0.2);
+        .custom-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-blue) !important;
         }
-        .icon-box { 
-            font-size: 2.5rem; 
-            color: var(--accent-blue); 
-        }
-        .card-text-custom {
-            color: var(--text-subtle);
-            font-size: 0.93rem;
-            line-height: 1.6;
-        }
-        
-        /* Botão Saiba Mais */
-        .btn-card-custom {
-            color: var(--accent-blue);
-            border: 1px solid var(--accent-blue);
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-        .btn-card-custom:hover {
-            background-color: var(--accent-blue);
-            color: #0A192F;
+
+        .modal-custom {
+            background-color: var(--bg-card) !important;
+            color: var(--text-light) !important;
+            border: 1px solid rgba(0, 210, 255, 0.3) !important;
         }
     </style>
 </head>
 <body>
 
-    <!-- Menu de Navegação -->
+    <!-- NAVBAR -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
             <a class="navbar-brand fw-bold" href="index.html">
@@ -86,125 +65,323 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link" href="index.html">Início</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="servicos.html">Serviços</a></li>
+                    <li class="nav-item"><a class="nav-link active fw-bold text-info" href="servicos.html">Serviços</a></li>
                     <li class="nav-item"><a class="nav-link" href="projeto-social.html">Projeto Social</a></li>
                     <li class="nav-item"><a class="nav-link" href="sobre.html">Sobre</a></li>
-                    <li class="nav-item"><a class="nav-link" href="login.html">Orçamento</a></li>
-                    <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
+                    <li class="nav-item"><a class="nav-link" href="orcamento.html">Orçamento</a></li>
+                    <li class="nav-item"><a class="nav-link ms-2 btn btn-outline-info text-info px-3" href="login.html">Login</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <!-- Seção de Serviços -->
-    <section class="pt-5 mt-5">
-        <div class="container py-5">
-            <div class="text-center mb-5">
-                <h1 class="fw-bold display-5">Nossas <span class="brand-highlight">Frentes de Atuação</span></h1>
-                <p class="lead" style="color: var(--text-subtle);">Soluções integradas sob medida para o seu crescimento</p>
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main class="container pt-5 mt-5 pb-5 flex-grow-1">
+        <div class="text-center mb-5">
+            <h1 class="fw-bold">Nossos <span class="brand-highlight">Serviços</span></h1>
+            <p class="text-subtle">Soluções tecnológicas sob medida para alavancar e proteger o seu negócio.</p>
+        </div>
+
+        <div class="row g-4">
+            <!-- Card 1: Presença Digital -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 custom-card text-light p-3">
+                    <div class="card-body d-flex flex-column text-center">
+                        <div class="mb-3 text-info fs-1">
+                            <i class="bi bi-globe"></i>
+                        </div>
+                        <h3 class="h5 card-title fw-bold mb-3">Presença Digital & Tags NFC</h3>
+                        <p class="card-text text-subtle flex-grow-1">
+                            Landing Pages de alta conversão, otimização do Google Meu Negócio e conexão estratégica do cliente físico para o digital via Tags NFC e QR Code.
+                        </p>
+                        <button type="button" class="btn btn-outline-info w-100 mt-3" data-bs-toggle="modal" data-bs-target="#modalNfc">
+                            Saiba Mais <i class="bi bi-arrow-right ms-1"></i>
+                        </button>
+                    </div>
+                </div>
             </div>
-            
-            <div class="row g-4 justify-content-center">
-                
-                <!-- Card 1: Presença Digital -->
-                <div class="col-md-6 col-lg-4">
-                    <div class="card card-service h-100 p-4 text-center text-white">
-                        <div>
-                            <div class="icon-box mb-3"><i class="bi bi-globe"></i></div>
-                            <h4 class="h5 fw-bold mb-3">Presença Digital</h4>
-                            <p class="card-text-custom mb-4">
-                                Landing Pages de alta conversão, otimização do Google Meu Negócio e conexão estratégica do cliente físico para o digital via Tags NFC e QR Code.
-                            </p>
-                        </div>
-                        <a href="login.html" class="btn btn-card-custom btn-sm w-100">
-                            Saiba Mais <i class="bi bi-arrow-right ms-1"></i>
-                        </a>
-                    </div>
-                </div>
 
-                <!-- Card 2: Videomonitoramento -->
-                <div class="col-md-6 col-lg-4">
-                    <div class="card card-service h-100 p-4 text-center text-white">
-                        <div>
-                            <div class="icon-box mb-3"><i class="bi bi-shield-check"></i></div>
-                            <h4 class="h5 fw-bold mb-3">Videomonitoramento & Portaria</h4>
-                            <p class="card-text-custom mb-4">
-                                Projeto, montagem e configuração profissional de sistemas de CFTV (câmeras) e portaria eletrônica para garantir a segurança do seu patrimônio.
-                            </p>
+            <!-- Card 2: CFTV -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 custom-card text-light p-3">
+                    <div class="card-body d-flex flex-column text-center">
+                        <div class="mb-3 text-info fs-1">
+                            <i class="bi bi-shield-check"></i>
                         </div>
-                        <a href="contato.html?servico=cftv-portaria" class="btn btn-card-custom btn-sm w-100">
+                        <h3 class="h5 card-title fw-bold mb-3">CFTV & Segurança Eletrônica</h3>
+                        <p class="card-text text-subtle flex-grow-1">
+                            Projeto, montagem e configuração profissional de sistemas de CFTV (câmeras) e portaria eletrônica para garantir a segurança do seu patrimônio.
+                        </p>
+                        <button type="button" class="btn btn-outline-info w-100 mt-3" data-bs-toggle="modal" data-bs-target="#modalCftv">
                             Saiba Mais <i class="bi bi-arrow-right ms-1"></i>
-                        </a>
+                        </button>
                     </div>
                 </div>
+            </div>
 
-                <!-- Card 3: FinBot -->
-                <div class="col-md-6 col-lg-4">
-                    <div class="card card-service h-100 p-4 text-center text-white">
-                        <div>
-                            <div class="icon-box mb-3"><i class="bi bi-robot"></i></div>
-                            <h4 class="h5 fw-bold mb-3">Gerenciador Financeiro (FinBot)</h4>
-                            <p class="card-text-custom mb-4">
-                                Organize seu orçamento pessoal ou do negócio com o FinBot: um agente inteligente que registra entradas, saídas e relatórios via mensagens no WhatsApp.
-                            </p>
+            <!-- Card 3: FinBot -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 custom-card text-light p-3">
+                    <div class="card-body d-flex flex-column text-center">
+                        <div class="mb-3 text-info fs-1">
+                            <i class="bi bi-robot"></i>
                         </div>
-                        <a href="contato.html?servico=finbot" class="btn btn-card-custom btn-sm w-100">
+                        <h3 class="h5 card-title fw-bold mb-3">FinBot - Gestão Financeira</h3>
+                        <p class="card-text text-subtle flex-grow-1">
+                            Organize seu orçamento pessoal ou do negócio com o FinBot: um agente inteligente que registra entradas, saídas e relatórios via mensagens no WhatsApp.
+                        </p>
+                        <button type="button" class="btn btn-outline-info w-100 mt-3" data-bs-toggle="modal" data-bs-target="#modalFinbot">
                             Saiba Mais <i class="bi bi-arrow-right ms-1"></i>
-                        </a>
+                        </button>
                     </div>
                 </div>
+            </div>
 
-                <!-- Card 4: Sistemas PDV -->
-                <div class="col-md-6 col-lg-4">
-                    <div class="card card-service h-100 p-4 text-center text-white">
-                        <div>
-                            <div class="icon-box mb-3"><i class="bi bi-shop"></i></div>
-                            <h4 class="h5 fw-bold mb-3">Sistema PDV para Adegas</h4>
-                            <p class="card-text-custom mb-4">
-                                Controle de estoque, frente de caixa e vendas rápidas com um sistema focado na agilidade e na rotina real do comércio e adegas.
-                            </p>
+            <!-- Card 4: PDV Adegas -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 custom-card text-light p-3">
+                    <div class="card-body d-flex flex-column text-center">
+                        <div class="mb-3 text-info fs-1">
+                            <i class="bi bi-shop"></i>
                         </div>
-                        <a href="contato.html?servico=pdv-adegas" class="btn btn-card-custom btn-sm w-100">
+                        <h3 class="h5 card-title fw-bold mb-3">Sistema PDV para Adegas</h3>
+                        <p class="card-text text-subtle flex-grow-1">
+                            Controle de estoque, frente de caixa e vendas rápidas com um sistema focado na agilidade e na rotina real do comércio e adegas.
+                        </p>
+                        <button type="button" class="btn btn-outline-info w-100 mt-3" data-bs-toggle="modal" data-bs-target="#modalPdv">
                             Saiba Mais <i class="bi bi-arrow-right ms-1"></i>
-                        </a>
+                        </button>
                     </div>
                 </div>
+            </div>
 
-                <!-- Card 5: Automação de Atendimento -->
-                <div class="col-md-6 col-lg-4">
-                    <div class="card card-service h-100 p-4 text-center text-white">
-                        <div>
-                            <div class="icon-box mb-3"><i class="bi bi-chat-dots-fill"></i></div>
-                            <h4 class="h5 fw-bold mb-3">Automação de Atendimento</h4>
-                            <p class="card-text-custom mb-4">
-                                Agentes de IA com atendimento humanizado para responder dúvidas, enviar catálogos e capturar contatos de clientes 24 horas por dia.
-                            </p>
+            <!-- Card 5: Automação Atendimento -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 custom-card text-light p-3">
+                    <div class="card-body d-flex flex-column text-center">
+                        <div class="mb-3 text-info fs-1">
+                            <i class="bi bi-chat-dots"></i>
                         </div>
-                        <a href="contato.html?servico=automacao-atendimento" class="btn btn-card-custom btn-sm w-100">
+                        <h3 class="h5 card-title fw-bold mb-3">Automação de Atendimento</h3>
+                        <p class="card-text text-subtle flex-grow-1">
+                            Agentes de IA com atendimento humanizado para responder dúvidas, enviar catálogos e capturar contatos de clientes 24 horas por dia.
+                        </p>
+                        <button type="button" class="btn btn-outline-info w-100 mt-3" data-bs-toggle="modal" data-bs-target="#modalAutomacao">
                             Saiba Mais <i class="bi bi-arrow-right ms-1"></i>
-                        </a>
+                        </button>
                     </div>
                 </div>
-                <!-- Card: Serviços Personalizados -->
-                <div class="col-md-6 col-lg-4">
-                    <div class="card h-100 bg-card border-accent text-light p-3 position-relative">
-                        <div class="card-body d-flex flex-column">
-                            <div class="mb-3 text-info fs-1">
-                                <i class="bi bi-sliders"></i>
-                            </div>
-                            <h3 class="h5 card-title fw-bold">Soluções Personalizadas</h3>
-                            <p class="card-text text-subtle flex-grow-1">
-                                 Projetos sob medida para necessidades específicas. Desenvolvemos desde pequenos scripts de automação até integrações complexas de sistemas.
-                            </p>
-                            <button type="button" class="btn btn-outline-info w-100 mt-3" data-bs-toggle="modal" data-bs-target="#modalServicoPersonalizado">
-                                <i class="bi bi-info-circle me-1"></i> Saber Mais
-                            </button>
+            </div>
+
+            <!-- Card 6: Serviços Personalizados -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 custom-card text-light p-3">
+                    <div class="card-body d-flex flex-column text-center">
+                        <div class="mb-3 text-info fs-1">
+                            <i class="bi bi-sliders"></i>
                         </div>
+                        <h3 class="h5 card-title fw-bold mb-3">Soluções Personalizadas</h3>
+                        <p class="card-text text-subtle flex-grow-1">
+                            Projetos sob medida para necessidades específicas. Desenvolvemos desde pequenos scripts de automação até integrações complexas de sistemas.
+                        </p>
+                        <button type="button" class="btn btn-outline-info w-100 mt-3" data-bs-toggle="modal" data-bs-target="#modalServicoPersonalizado">
+                            Saiba Mais <i class="bi bi-arrow-right ms-1"></i>
+                        </button>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </main>
+
+    <!-- MODAIS DE EXPLICAÇÃO DETALHADA -->
+
+    <!-- Modal 1: Presença Digital -->
+    <div class="modal fade" id="modalNfc" tabindex="-1" aria-labelledby="modalNfcLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content modal-custom">
+                <div class="modal-header border-secondary">
+                    <h5 class="modal-title fw-bold text-info" id="modalNfcLabel">
+                        <i class="bi bi-globe me-2"></i>Presença Digital & Conectividade NFC
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                </div>
+                <div class="modal-body text-subtle">
+                    <p>
+                        Transforme a maneira como seus clientes interagem com seu estabelecimento físico. Unimos desenvolvimento web moderno com tecnologia de aproximação física para maximizar suas avaliações e vendas.
+                    </p>
+                    
+                    <h6 class="fw-bold text-light mt-4 mb-2"><i class="bi bi-check2-circle text-info me-2"></i>Recursos inclusos:</h6>
+                    <ul class="list-unstyled ms-3">
+                        <li class="mb-2"><i class="bi bi-chevron-right text-info me-2"></i><strong>Landing Pages Exclusivas:</strong> Páginas leves, ultra-rápidas e otimizadas para conversão em dispositivos móveis.</li>
+                        <li class="mb-2"><i class="bi bi-chevron-right text-info me-2"></i><strong>Placas e Display NFC / QR Code:</strong> Placas físicas inteligentes para mesas ou balcões (o cliente aproxima o celular e abre seu menu, WhatsApp ou avaliação Google instantaneamente).</li>
+                        <li class="mb-2"><i class="bi bi-chevron-right text-info me-2"></i><strong>Gestão Google Meu Negócio:</strong> Configuração profissional de perfil para colocar sua empresa nos primeiros resultados das buscas locais.</li>
+                    </ul>
+                </div>
+                <div class="modal-footer border-secondary">
+                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Fechar</button>
+                    <a href="orcamento.html" class="btn btn-info"><i class="bi bi-chat-dots me-1"></i> Solicitar Orçamento</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 2: CFTV -->
+    <div class="modal fade" id="modalCftv" tabindex="-1" aria-labelledby="modalCftvLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content modal-custom">
+                <div class="modal-header border-secondary">
+                    <h5 class="modal-title fw-bold text-info" id="modalCftvLabel">
+                        <i class="bi bi-shield-check me-2"></i>CFTV & Segurança Eletrônica
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                </div>
+                <div class="modal-body text-subtle">
+                    <p>
+                        Proteja seu comércio, residência ou empresa com sistemas de monitoramento modernos, cabeamento estruturado e acesso remoto na palma da sua mão.
+                    </p>
+                    
+                    <h6 class="fw-bold text-light mt-4 mb-2"><i class="bi bi-check2-circle text-info me-2"></i>Diferenciais técnicos:</h6>
+                    <ul class="list-unstyled ms-3">
+                        <li class="mb-2"><i class="bi bi-chevron-right text-info me-2"></i><strong>Câmeras IP e HD:</strong> Instalação limpa com visualização noturna colorida e gravação em alta definição.</li>
+                        <li class="mb-2"><i class="bi bi-chevron-right text-info me-2"></i><strong>Acesso Remoto no Celular:</strong> Configure seus dispositivos para monitorar tudo em tempo real de qualquer lugar via app.</li>
+                        <li class="mb-2"><i class="bi bi-chevron-right text-info me-2"></i><strong>Manutenção e Infraestrutura:</strong> Organização de racks, passagem de cabos de rede e manutenção preventiva de DVRs.</li>
+                    </ul>
+                </div>
+                <div class="modal-footer border-secondary">
+                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Fechar</button>
+                    <a href="orcamento.html" class="btn btn-info"><i class="bi bi-chat-dots me-1"></i> Solicitar Orçamento</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 3: FinBot -->
+    <div class="modal fade" id="modalFinbot" tabindex="-1" aria-labelledby="modalFinbotLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content modal-custom">
+                <div class="modal-header border-secondary">
+                    <h5 class="modal-title fw-bold text-info" id="modalFinbotLabel">
+                        <i class="bi bi-robot me-2"></i>FinBot - Assistente Financeiro no WhatsApp
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                </div>
+                <div class="modal-body text-subtle">
+                    <p>
+                        Chega de planilhas difíceis e esquecimento. O FinBot é uma solução desenvolvida pela Fratertec para simplificar o controle do seu caixa pessoal ou empresarial direto pelo aplicativo de mensagens que você já usa.
+                    </p>
+                    
+                    <h6 class="fw-bold text-light mt-4 mb-2"><i class="bi bi-check2-circle text-info me-2"></i>Como funciona:</h6>
+                    <ul class="list-unstyled ms-3">
+                        <li class="mb-2"><i class="bi bi-chevron-right text-info me-2"></i><strong>Linguagem Natural:</strong> Mande mensagens como <em>"Gastei 50 no mercado"</em> ou <em>"Recebi 200 de PIX"</em> e o robô interpreta e categoriza.</li>
+                        <li class="mb-2"><i class="bi bi-chevron-right text-info me-2"></i><strong>Relatórios Automáticos:</strong> Receba resumos diários, semanais ou mensais dos seus gastos divididos por categoria.</li>
+                        <li class="mb-2"><i class="bi bi-chevron-right text-info me-2"></i><strong>Segurança dos Dados:</strong> Informações encriptadas e armazenadas com isolamento de conta.</li>
+                    </ul>
+                </div>
+                <div class="modal-footer border-secondary">
+                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Fechar</button>
+                    <a href="orcamento.html" class="btn btn-info"><i class="bi bi-chat-dots me-1"></i> Solicitar Orçamento</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 4: PDV Adegas -->
+    <div class="modal fade" id="modalPdv" tabindex="-1" aria-labelledby="modalPdvLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content modal-custom">
+                <div class="modal-header border-secondary">
+                    <h5 class="modal-title fw-bold text-info" id="modalPdvLabel">
+                        <i class="bi bi-shop me-2"></i>Sistema PDV para Adegas e Comércio
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                </div>
+                <div class="modal-body text-subtle">
+                    <p>
+                        Um sistema de Ponto de Venda simples, prático e ágil, desenhado especificamente para lidar com o fluxo rápido de adegas, conveniências e comércios locais.
+                    </p>
+                    
+                    <h6 class="fw-bold text-light mt-4 mb-2"><i class="bi bi-check2-circle text-info me-2"></i>Principais funções:</h6>
+                    <ul class="list-unstyled ms-3">
+                        <li class="mb-2"><i class="bi bi-chevron-right text-info me-2"></i><strong>Frente de Caixa Rápido:</strong> Registre vendas com leitor de código de barras ou atalhos visuais dinâmicos.</li>
+                        <li class="mb-2"><i class="bi bi-chevron-right text-info me-2"></i><strong>Gestão de Estoque:</strong> Baixa automática de itens, alerta de estoque mínimo e cadastro descomplicado de bebidas/produtos.</li>
+                        <li class="mb-2"><i class="bi bi-chevron-right text-info me-2"></i><strong>Fechamento de Caixa:</strong> Controle diário de entradas (PIX, Cartão, Dinheiro) sem divergências.</li>
+                    </ul>
+                </div>
+                <div class="modal-footer border-secondary">
+                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Fechar</button>
+                    <a href="orcamento.html" class="btn btn-info"><i class="bi bi-chat-dots me-1"></i> Solicitar Orçamento</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 5: Automação Atendimento -->
+    <div class="modal fade" id="modalAutomacao" tabindex="-1" aria-labelledby="modalAutomacaoLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content modal-custom">
+                <div class="modal-header border-secondary">
+                    <h5 class="modal-title fw-bold text-info" id="modalAutomacaoLabel">
+                        <i class="bi bi-chat-dots me-2"></i>Automação de Atendimento Inteligente
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                </div>
+                <div class="modal-body text-subtle">
+                    <p>
+                        Atenda seus clientes a qualquer hora do dia ou da noite com fluxos de atendimento automatizados e inteligência artificial humanizada.
+                    </p>
+                    
+                    <h6 class="fw-bold text-light mt-4 mb-2"><i class="bi bi-check2-circle text-info me-2"></i>Benefícios para seu negócio:</h6>
+                    <ul class="list-unstyled ms-3">
+                        <li class="mb-2"><i class="bi bi-chevron-right text-info me-2"></i><strong>Respostas Imediatas 24/7:</strong> Não perca vendas fora do horário comercial tirando dúvidas frequentes e enviando tabelas/catálogos.</li>
+                        <li class="mb-2"><i class="bi bi-chevron-right text-info me-2"></i><strong>Qualificação de Leads:</strong> O bot coleta nome, necessidade e contato antes de repassar o atendimento para o seu WhatsApp pessoal.</li>
+                        <li class="mb-2"><i class="bi bi-chevron-right text-info me-2"></i><strong>Integração com Sistemas:</strong> Conexão com seu banco de dados para consultar status de pedidos ou agendamentos.</li>
+                    </ul>
+                </div>
+                <div class="modal-footer border-secondary">
+                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Fechar</button>
+                    <a href="orcamento.html" class="btn btn-info"><i class="bi bi-chat-dots me-1"></i> Solicitar Orçamento</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 6: Serviços Personalizados -->
+    <div class="modal fade" id="modalServicoPersonalizado" tabindex="-1" aria-labelledby="modalServicoPersonalizadoLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content modal-custom">
+                <div class="modal-header border-secondary">
+                    <h5 class="modal-title fw-bold text-info" id="modalServicoPersonalizadoLabel">
+                        <i class="bi bi-sliders me-2"></i>Soluções & Projetos Personalizados
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                </div>
+                <div class="modal-body text-subtle">
+                    <p>
+                        Nem todo desafio de TI se encaixa num pacote fechado. Entendemos que cada empresa ou profissional tem fluxos de trabalho únicos, e é por isso que desenvolvemos <strong>soluções sob medida</strong>.
+                    </p>
+                    
+                    <h6 class="fw-bold text-light mt-4 mb-2"><i class="bi bi-check2-circle text-info me-2"></i>O que podemos criar para você:</h6>
+                    <ul class="list-unstyled ms-3">
+                        <li class="mb-2"><i class="bi bi-chevron-right text-info me-2"></i><strong>Scripts de Automação:</strong> Rotinas para manipulação de arquivos, relatórios automatizados e cópias de segurança (backup).</li>
+                        <li class="mb-2"><i class="bi bi-chevron-right text-info me-2"></i><strong>Integração de APIs:</strong> Conexão entre sistemas legados, plataformas de pagamento, CRMs e bots (WhatsApp/Telegram).</li>
+                        <li class="mb-2"><i class="bi bi-chevron-right text-info me-2"></i><strong>Ferramentas Internas:</strong> Painéis administrativos (Dashboards) sob medida para controle de estoque, chamados ou fluxo financeiro.</li>
+                        <li class="mb-2"><i class="bi bi-chevron-right text-info me-2"></i><strong>Adaptação e Refatoração:</strong> Melhorias de performance, arquitetura e segurança em softwares e sites já existentes.</li>
+                    </ul>
+
+                    <div class="alert alert-dark border-secondary mt-4 d-flex align-items-center text-light" role="alert" style="background-color: rgba(10, 25, 47, 0.8);">
+                        <i class="bi bi-lightbulb text-info fs-3 me-3"></i>
+                        <div>
+                            <strong>Tem uma ideia em mente?</strong> Analisamos a viabilidade técnica e desenhamos a melhor arquitetura sem compromisso.
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer border-secondary">
+                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Fechar</button>
+                    <a href="orcamento.html" class="btn btn-info"><i class="bi bi-chat-dots me-1"></i> Solicitar Orçamento</a>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
