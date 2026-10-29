@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fratertec - Painel Admin</title>
+    
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    
+    <style>
+        :root { 
+            --bg-dark: #0A192F; 
+            --bg-card: #112240; 
+            --accent-blue: #00D2FF; 
+            --text-light: #F8FAFC; 
+            --text-subtle: #CBD5E1; 
+        }
+        body { 
+            background-color: var(--bg-dark); 
+            color: var(--text-light); 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        .navbar { 
+            background-color: rgba(10, 25, 47, 0.95); 
+            border-bottom: 1px solid rgba(0, 210, 255, 0.2); 
+            backdrop-filter: blur(10px);
+        }
+        .brand-highlight { color: var(--accent-blue); }
+        .text-subtle { color: var(--text-subtle) !important; }
+        
+        .card-custom { 
+            background-color: var(--bg-card); 
+            border: 1px solid rgba(0, 210, 255, 0.2); 
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        .btn-custom { 
+            background-color: var(--accent-blue); 
+            color: #0A192F !important; 
+            font-weight: 600; 
+        }
+
+        /* Estilização da Tabela */
+        .table-custom {
+            color: var(--text-light) !important;
+            border-color: rgba(0, 210, 255, 0.1);
+        }
+        .table-custom th {
+            color: var(--accent-blue) !important;
+            background-color: #0A192F !important;
+            border-color: rgba(0, 210, 255, 0.2) !important;
+        }
+        .table-custom td {
+            color: var(--text-subtle) !important;
+            background-color: transparent !important;
+            border-color: rgba(255, 255, 255, 0.08) !important;
+        }
+
+        /* Badges de Status */
+        .badge-pendente { background-color: #FFC107; color: #0A192F !important; font-weight: 600; }
+        .badge-execucao { background-color: #00D2FF; color: #0A192F !important; font-weight: 600; }
+        .badge-concluido { background-color: #198754; color: #FFFFFF !important; font-weight: 600; }
+        .badge-cancelado { background-color: #DC3545; color: #FFFFFF !important; font-weight: 600; }
+
+        /* Estilo das Abas */
+        .nav-tabs .nav-link {
+            color: var(--text-subtle);
+            border: none;
+            border-bottom: 2px solid transparent;
+            font-weight: 600;
+        }
+        .nav-tabs .nav-link.active {
+            color: var(--accent-blue) !important;
+            background-color: transparent;
+            border-bottom: 2px solid var(--accent-blue);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container-fluid px-4">
+            <a class="navbar-brand fw-bold" href="index.html">
+                <i class="bi bi-shield-lock-fill text-info me-2"></i>FRATER<span class="brand-highlight">TEC</span> <small class="fs-6 text-subtle fw-normal">| Painel Admin</small>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center gap-2">
+                    <li class="nav-item text-subtle small me-2">
+                        <i class="bi bi-person-badge text-info me-1"></i>Administrador: <strong class="text-light">Carlos Pereira</strong>
+                    </li>
+                    <li class="nav-item">
+                        <a href="index.html" class="btn btn-sm btn-outline-danger px-3"><i class="bi bi-box-arrow-right me-1"></i>Sair</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main class="container-fluid px-4 pt-5 mt-5 pb-5 flex-grow-1">
+        
+        <div class="d-flex justify-content-between align-items-center my-4">
+            <div>
+                <h2 class="fw-bold mb-1">Gestão <span class="brand-highlight">Operacional & Comercial</span></h2>
+                <p class="text-subtle mb-0">Gerencie orçamentos, cotações, ordens de serviço e clientes cadastrados.</p>
+            </div>
+        </div>
+
+        <!-- MÉTRICAS DE DESEMPENHO -->
+        <div class="row g-3 mb-4">
+            <div class="col-xl-3 col-md-6">
+                <div class="card card-custom p-3 d-flex flex-row align-items-center justify-content-between">
+                    <div>
+                        <span class="text-subtle small d-block">Orçamentos Pendentes</span>
+                        <h3 class="fw-bold text-warning mb-0">3</h3>
+                    </div>
+                    <i class="bi bi-clock-history fs-1 text-warning"></i>
+                </div>
+            </div>
+            <div class="col-xl-3 col-md-6">
+                <div class="card card-custom p-3 d-flex flex-row align-items-center justify-content-between">
+                    <div>
+                        <span class="text-subtle small d-block">OS em Andamento</span>
+                        <h3 class="fw-bold text-info mb-0">2</h3>
+                    </div>
+                    <i class="bi bi-tools fs-1 text-info"></i>
+                </div>
+            </div>
+            <div class="col-xl-3 col-md-6">
+                <div class="card card-custom p-3 d-flex flex-row align-items-center justify-content-between">
+                    <div>
+                        <span class="text-subtle small d-block">Faturamento Estimado</span>
+                        <h3 class="fw-bold text-success mb-0">R$ 4.850,00</h3>
+                    </div>
+                    <i class="bi bi-cash-stack fs-1 text-success"></i>
+                </div>
+            </div>
+            <div class="col-xl-3 col-md-6">
+                <div class="card card-custom p-3 d-flex flex-row align-items-center justify-content-between">
+                    <div>
+                        <span class="text-subtle small d-block">Base de Clientes</span>
+                        <h3 class="fw-bold text-light mb-0">12</h3>
+                    </div>
+                    <i class="bi bi-people fs-1 text-light"></i>
+                </div>
+            </div>
+        </div>
+
+        <!-- TABELAS E ABAS DE NAVEGAÇÃO -->
+        <div class="card card-custom p-4">
+            
+            <ul class="nav nav-tabs mb-4" id="adminTabs" role="tablist">
+                <li class="nav-item">
+                    <button class="nav-link active" id="orcamentos-tab" data-bs-toggle="tab" data-bs-target="#orcamentosTab">
+                        <i class="bi bi-file-earmark-text me-2"></i>Orçamentos & Cotações
+                    </button>
+                </li>
+                <li class="nav-item">
+                    <button class="nav-link" id="os-tab" data-bs-toggle="tab" data-bs-target="#osTab">
+                        <i class="bi bi-kanban me-2"></i>Ordens de Serviço (OS)
+                    </button>
+                </li>
+                <li class="nav-item">
+                    <button class="nav-link" id="clientes-tab" data-bs-toggle="tab" data-bs-target="#clientesTab">
+                        <i class="bi bi-person-lines-fill me-2"></i>Clientes
+                    </button>
+                </li>
+            </ul>
+
+            <div class="tab-content" id="adminTabsContent">
+                
+                <!-- ABA 1: ORÇAMENTOS -->
+                <div class="tab-pane fade show active" id="orcamentosTab">
+                    <div class="table-responsive">
+                        <table class="table table-custom align-middle mb-0">
+                            <thead>
+                                <tr>
+                                    <th>#ID</th>
+                                    <th>Cliente</th>
+                                    <th>Serviço</th>
+                                    <th>Data</th>
+                                    <th>Status</th>
+                                    <th class="text-end">Ações Admin</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="fw-bold text-light">#ORC-1042</td>
+                                    <td class="text-light">Marcos Oliveira<br><small class="text-subtle">(11) 98888-7777</small></td>
+                                    <td class="text-light">FinBot - Automação WhatsApp</td>
+                                    <td>28/10/2026</td>
+                                    <td><span class="badge badge-pendente px-3 py-2">Pendente</span></td>
+                                    <td class="text-end">
+                                        <button class="btn btn-sm btn-info fw-bold me-1" onclick="abrirModalCotacao('#ORC-1042', 'Marcos Oliveira', 'FinBot')" title="Analisar e Cotar"><i class="bi bi-calculator me-1"></i>Cotar / Aprovar</button>
+                                        <button class="btn btn-sm btn-outline-danger" onclick="reprovarOrcamento('#ORC-1042')" title="Reprovar"><i class="bi bi-x-lg"></i></button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="fw-bold text-light">#ORC-1040</td>
+                                    <td class="text-light">Adega do Zé<br><small class="text-subtle">(11) 97777-6666</small></td>
+                                    <td class="text-light">PDV & Rede Local</td>
+                                    <td>25/10/2026</td>
+                                    <td><span class="badge badge-execucao px-3 py-2">Aprovado</span></td>
+                                    <td class="text-end">
+                                        <button class="btn btn-sm btn-outline-info me-1" onclick="abrirModalCotacao('#ORC-1040', 'Adega do Zé', 'PDV')" title="Ver Itens"><i class="bi bi-eye me-1"></i>Ver Detalhes</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- ABA 2: ORDENS DE SERVIÇO -->
+                <div class="tab-pane fade" id="osTab">
+                    <div class="table-responsive">
+                        <table class="table table-custom align-middle mb-0">
+                            <thead>
+                                <tr>
+                                    <th>#OS</th>
+                                    <th>Cliente</th>
+                                    <th>Técnico Responsável</th>
+                                    <th>Valor Final</th>
+                                    <th>Status OS</th>
+                                    <th class="text-end">Gerenciar</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="fw-bold text-light">#OS-883</td>
+                                    <td class="text-light">Adega do Zé</td>
+                                    <td class="text-info"><i class="bi bi-person-gear me-1"></i>Carlos Pereira</td>
+                                    <td class="fw-bold text-success">R$ 1.200,00</td>
+                                    <td><span class="badge badge-execucao px-3 py-2">Em Execução</span></td>
+                                    <td class="text-end">
+                                        <button class="btn btn-sm btn-outline-success me-1" onclick="concluirOS('#OS-883')"><i class="bi bi-check-lg me-1"></i>Concluir</button>
+                                        <button class="btn btn-sm btn-outline-light"><i class="bi bi-file-earmark-pdf me-1"></i>Contrato / NF</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- ABA 3: CLIENTES -->
+                <div class="tab-pane fade" id="clientesTab">
+                    <div class="table-responsive">
+                        <table class="table table-custom align-middle mb-0">
+                            <thead>
+                                <tr>
+                                    <th>Nome</th>
+                                    <th>E-mail</th>
+                                    <th>Telefone</th>
+                                    <th>Tipo</th>
+                                    <th>Ações</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="fw-bold text-light">Marcos Oliveira</td>
+                                    <td class="text-subtle">marcos@email.com</td>
+                                    <td class="text-subtle">(11) 98888-7777</td>
+                                    <td><span class="badge bg-secondary">Cliente</span></td>
+                                    <td><a href="https://wa.me/5511988887777" target="_blank" class="btn btn-sm btn-outline-success"><i class="bi bi-whatsapp"></i> Chat</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- MODAL COMPLETO DE COTAÇÃO, ITENS E CONTRATO -->
+    <div class="modal fade" id="modalCotacao" tabindex="-1">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content card-custom text-light">
+                <div class="modal-header border-secondary">
+                    <h5 class="modal-title fw-bold" id="modalCotacaoTitulo"><i class="bi bi-calculator text-info me-2"></i>Cotação e Orçamento</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    
+                    <div class="row g-3 mb-3">
+                        <div class="col-md-6">
+                            <label class="form-label text-subtle small mb-1">Cliente</label>
+                            <input type="text" id="modalCliente" class="form-control bg-dark text-light border-secondary" readonly>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label text-subtle small mb-1">Serviço Principal</label>
+                            <input type="text" id="modalServico" class="form-control bg-dark text-light border-secondary" readonly>
+                        </div>
+                    </div>
+
+                    <h6 class="fw-bold text-info mt-4 mb-2"><i class="bi bi-list-check me-2"></i>Itens do Orçamento (Detalhamento)</h6>
+                    
+                    <div class="table-responsive mb-3">
+                        <table class="table table-custom align-middle" id="tabelaItensCotacao">
+                            <thead>
+                                <tr>
+                                    <th style="width: 45%;">Descrição do Item / Serviço</th>
+                                    <th style="width: 15%;">Qtd</th>
+                                    <th style="width: 25%;">Unitário (R$)</th>
+                                    <th style="width: 15%;">Ação</th>
+                                </tr>
+                            </thead>
+                            <tbody id="listaItens">
+                                <!-- Itens dinâmicos via JS -->
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <button class="btn btn-sm btn-outline-info mb-4" onclick="adicionarLinhaItem()"><i class="bi bi-plus-lg me-1"></i>Adicionar Item</button>
+
+                    <div class="row g-3 align-items-center p-3 rounded" style="background-color: #0A192F;">
+                        <div class="col-md-6">
+                            <label class="form-label text-subtle small mb-1">Prazo de Entrega / Início</label>
+                            <input type="text" id="prazoEntrega" class="form-control form-control-sm bg-dark text-light border-secondary" placeholder="Ex: 5 dias úteis">
+                        </div>
+                        <div class="col-md-6 text-end">
+                            <span class="text-subtle d-block small">Valor Total Estimado</span>
+                            <h3 class="fw-bold text-success mb-0" id="valorTotalOrcamento">R$ 0,00</h3>
+                        </div>
+                    </div>
+
+                </div>
+                
+                <div class="modal-footer border-secondary d-flex justify-content-between">
+                    <div>
+                        <button type="button" class="btn btn-outline-success btn-sm me-1" onclick="enviarPropostaWhats()"><i class="bi bi-whatsapp me-1"></i>Enviar Proposta</button>
+                        <button type="button" class="btn btn-outline-light btn-sm" onclick="gerarMinutaContrato()"><i class="bi bi-file-text me-1"></i>Gerar Contrato/PDF</button>
+                    </div>
+                    <div>
+                        <button type="button" class="btn btn-danger btn-sm me-1" onclick="reprovarOrcamentoModal()"><i class="bi bi-x-circle me-1"></i>Reprovar</button>
+                        <button type="button" class="btn btn-custom btn-sm" onclick="aprovarEGerarOS()"><i class="bi bi-check-circle me-1"></i>Aprovar & Gerar OS</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        let modalInstance;
+
+        function abrirModalCotacao(id, cliente, servico) {
+            document.getElementById('modalCotacaoTitulo').innerText = `Cotação - ${id}`;
+            document.getElementById('modalCliente').value = cliente;
+            document.getElementById('modalServico').value = servico;
+            
+            // Limpa tabela de itens e adiciona linha inicial
+            document.getElementById('listaItens').innerHTML = '';
+            adicionarLinhaItem('Desenvolvimento & Configuração Inicial', 1, 500);
+
+            modalInstance = new bootstrap.Modal(document.getElementById('modalCotacao'));
+            modalInstance.show();
+        }
+
+        function adicionarLinhaItem(desc = '', qtd = 1, valor = 0) {
+            const tbody = document.getElementById('listaItens');
+            const tr = document.createElement('tr');
+            
+            tr.innerHTML = `
+                <td><input type="text" class="form-control form-control-sm bg-dark text-light border-secondary desc-item" value="${desc}" placeholder="Ex: Mão de obra"></td>
+                <td><input type="number" class="form-control form-control-sm bg-dark text-light border-secondary qtd-item" value="${qtd}" min="1" onchange="calcularTotal()"></td>
+                <td><input type="number" class="form-control form-control-sm bg-dark text-light border-secondary valor-item" value="${valor}" step="0.01" onchange="calcularTotal()"></td>
+                <td><button class="btn btn-sm btn-outline-danger" onclick="removerLinha(this)"><i class="bi bi-trash"></i></button></td>
+            `;
+            
+            tbody.appendChild(tr);
+            calcularTotal();
+        }
+
+        function removerLinha(btn) {
+            btn.closest('tr').remove();
+            calcularTotal();
+        }
+
+        function calcularTotal() {
+            let total = 0;
+            const linhas = document.querySelectorAll('#listaItens tr');
+            
+            linhas.forEach(row => {
+                const qtd = parseFloat(row.querySelector('.qtd-item').value) || 0;
+                const valor = parseFloat(row.querySelector('.valor-item').value) || 0;
+                total += qtd * valor;
+            });
+
+            document.getElementById('valorTotalOrcamento').innerText = total.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+        }
+
+        function aprovarEGerarOS() {
+            alert('Orçamento Aprovado com sucesso! Ordem de Serviço gerada no painel.');
+            modalInstance.hide();
+        }
+
+        function reprovarOrcamento(id) {
+            if (confirm(`Tem certeza que deseja reprovar a solicitação ${id}?`)) {
+                alert(`Solicitação ${id} reprovada.`);
+            }
+        }
+
+        function reprovarOrcamentoModal() {
+            alert('Orçamento alterado para Reprovado/Recusado.');
+            modalInstance.hide();
+        }
+
+        function enviarPropostaWhats() {
+            const cliente = document.getElementById('modalCliente').value;
+            const total = document.getElementById('valorTotalOrcamento').innerText;
+            const texto = `Olá ${cliente}, seu orçamento na Fratertec foi cotado no valor total de ${total}. Acesse sua área do cliente para conferir os detalhes!`;
+            window.open(`https://wa.me/?text=${encodeURIComponent(texto)}`, '_blank');
+        }
+
+        function gerarMinutaContrato() {
+            alert('Gerando prévia do Contrato de Prestação de Serviços em PDF...');
+        }
+
+        function concluirOS(osId) {
+            if(confirm(`Marcar a ${osId} como Concluída?`)) {
+                alert(`${osId} concluída com sucesso! Pronta para emissão de Recibo/NF.`);
+            }
+        }
+    </script>
+</body>
+</html>
